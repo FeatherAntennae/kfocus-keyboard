@@ -239,7 +239,7 @@ static u32 uw_ec_write_addr_direct(u8 addr_low, u8 addr_high, u8 data_low, u8 da
 	return result;
 }
 
-u32 uw_wmi_read_ec_ram(u16 addr, u8 *data)
+static u32 uw_wmi_read_ec_ram(u16 addr, u8 *data)
 {
 	u32 result;
 	u8 addr_low, addr_high;
@@ -261,7 +261,7 @@ u32 uw_wmi_read_ec_ram(u16 addr, u8 *data)
 	return result;
 }
 
-u32 uw_wmi_write_ec_ram(u16 addr, u8 data)
+static u32 uw_wmi_write_ec_ram(u16 addr, u8 data)
 {
 	u32 result;
 	u8 addr_low, addr_high, data_low, data_high;
