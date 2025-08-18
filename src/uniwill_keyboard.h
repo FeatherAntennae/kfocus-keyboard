@@ -58,7 +58,6 @@
 #define UNIWILL_COLOR_DEFAULT			0xffffff
 
 static void uw_charging_priority_write_state(void);
-static void uw_charging_profile_write_state(void);
 
 struct tuxedo_keyboard_driver uniwill_keyboard_driver;
 
@@ -981,12 +980,6 @@ static int uw_has_charging_profile(bool *status)
 		*status = false;
 
 	return 0;
-}
-
-static void uw_charging_profile_write_state(void)
-{
-	if (uw_charging_profile_loaded)
-		uw_set_charging_profile(uw_charging_profile_last_written_value);
 }
 
 static void uw_charging_profile_init(struct platform_device *dev)
