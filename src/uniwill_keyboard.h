@@ -515,13 +515,13 @@ static void uw_kbd_bl_init_ready_check_work_func(struct work_struct *work)
 
 	if (prev_colors_same) {
 		uw_kbd_bl_init_set();
-		del_timer(&uw_kbd_bl_init_timer);
+		timer_delete(&uw_kbd_bl_init_timer);
 	} else {
 		if (uw_kbd_bl_check_count != 0) {
 			mod_timer(&uw_kbd_bl_init_timer, jiffies + msecs_to_jiffies(uw_kbd_bl_init_check_interval_ms));
 		} else {
 			TUXEDO_INFO("uw kbd init timeout, failed to detect end of boot animation\n");
-			del_timer(&uw_kbd_bl_init_timer);
+			timer_delete(&uw_kbd_bl_init_timer);
 		}
 	}
 
@@ -1299,7 +1299,7 @@ static void uniwill_keyboard_remove(struct platform_device *dev)
 
 	unregister_keyboard_notifier(&keyboard_notifier_block);
 
-	del_timer(&uw_kbd_bl_init_timer);
+	timer_delete(&uw_kbd_bl_init_timer);
 
 	if (uw_lightbar_loaded)
 		uw_lightbar_remove(dev);
