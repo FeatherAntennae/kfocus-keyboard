@@ -64,7 +64,7 @@ static int clevo_wmi_evaluate(u32 wmi_method_id, u32 wmi_arg, u32 *result)
 	return return_status;
 }
 
-u32 clevo_wmi_interface_method_call(u8 cmd, u32 arg, u32 *result_value)
+static u32 clevo_wmi_interface_method_call(u8 cmd, u32 arg, u32 *result_value)
 {
 	return clevo_wmi_evaluate(cmd, arg, result_value);
 }

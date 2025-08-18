@@ -85,7 +85,7 @@ static u32 clevo_acpi_evaluate(struct acpi_device *device, u8 cmd, u32 arg, u32 
 	return status;
 }
 
-u32 clevo_acpi_interface_method_call(u8 cmd, u32 arg, u32 *result_value)
+static u32 clevo_acpi_interface_method_call(u8 cmd, u32 arg, u32 *result_value)
 {
 	u32 status = 0;
 
@@ -143,7 +143,7 @@ static void clevo_acpi_remove(struct acpi_device *device)
 #endif
 }
 
-void clevo_acpi_notify(struct acpi_device *device, u32 event)
+static void clevo_acpi_notify(struct acpi_device *device, u32 event)
 {
 	u32 event_value;
 	// struct clevo_acpi_driver_data_t *clevo_acpi_driver_data;

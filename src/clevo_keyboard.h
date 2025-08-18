@@ -739,7 +739,7 @@ static bool dmi_string_in(enum dmi_field f, const char *str)
 	return strstr(info, str) != NULL;
 }
 
-int clevo_keyboard_init(void)
+static int clevo_keyboard_init(void)
 {
 	bool performance_profile_set_workaround;
 
